@@ -1,2 +1,2 @@
 # sendmail_form
-mail send using nodemailer
+send mail using nodemailer
