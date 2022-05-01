@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import axios from 'axios';
 export default class from extends Component{
 
 state={
@@ -37,6 +37,26 @@ handleMessage=(e)=>{
 //end of the input handle
 
 
+formSubmit=(e)=>{
+    e.preventDefault();
+    let data = {
+        name:this.state.name,
+        lastname:this.state.lastname,
+        email:this.state.email,
+        message:this.state.message
+    }
+
+
+axios.post('/api/forma',data)
+.then(res=>{
+    this.setState({
+        sent:true
+    },resetForm())
+}).catch(()=>{
+    console.log('message not sent');
+})
+
+}
 
     render(){
         return(
