@@ -6,15 +6,36 @@ state={
     name:'',
     lastname:'',
     email:'',
-    message:false
+    message:'',
+    sent:false
 }
 
-// handle input
-handleName=()=>{
-    
+//handle inputs
+handleName=(e)=>{
+    this.setState({
+        name:e.target.value
+    })
 }
 
-// end of handle input
+handleLastname=(e)=>{
+    this.setState({
+        lastname:e.target.value
+    })
+}
+
+handleEmail=(e)=>{
+    this.setState({
+        email:e.target.value
+    })
+}
+
+handleMessage=(e)=>{
+    this.setState({
+        message:e.target.value
+    })
+}
+//end of the input handle
+
 
 
     render(){
@@ -23,29 +44,29 @@ handleName=()=>{
                 <form>
                     {/*single item*/}
                     <div className='singleItem'>
-                        <label htmlFor='name'>name</label>
-                        <input type='text' name='name' className='name' placeholder='your first name....'/>
+                        <label htmlFor='name'>Name</label>
+                        <input type='text' name='name' className='name' placeholder='your first name....' value={this.state.name} onChange={this.handleName}/>
                     </div>
                     {/*end of th esingle item*/}
 
                     {/*second single item*/}
                     <div className='singleItem'>
-                        <label htmlFor='lastname'>last name</label>
-                        <input type='text' name='lastname' className='lastname' placeholder='your last name....'/>
+                        <label htmlFor='lastname'>Lastname</label>
+                        <input type='text' name='lastname' className='lastname' placeholder='your last name....' value={this.state.lastname} onChange={this.handleLastname} />
                     </div>
                     {/*end of the second single item*/}
 
                     {/*third single item*/}
                     <div className='singleItem'>
                         <label htmlFor='email'>Email</label>
-                        <input type='text' name='email' className='email' placeholder='your email....'/>
+                        <input type='text' name='email' className='email' placeholder='your email....' value={this.state.email} onChange={this.handleEmail}/>
                     </div>
                     {/*end of the third single item*/}
 
                     {/*forth single item*/}
                     <div className='textArea singleItem'>
-                        <label htmlFor='message'>message</label>
-                        <textarea name='message' id='' cols='30' rows='10' placeholder='enter your message....'></textarea>
+                        <label htmlFor='message'>Message</label>
+                        <textarea name='message' id='' cols='30' rows='10' placeholder='enter your message....' value={this.state.message} onChange={this.handleMessage}></textarea>
                     </div>
                     {/*end of the forth single item*/}
 
